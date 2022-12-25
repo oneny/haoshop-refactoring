@@ -20,5 +20,5 @@ export const MastHead = () => {
         </S.SlieItem>
       </S.SlideList>
     </S.MastHeadContainer>
-  )
-}
+  );
+};
