@@ -6,18 +6,21 @@ export const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   font-size: 1.6rem;
-  padding: 0 .8rem 0 .8rem;
-`
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.lg}) {
+    display: none;
+  }
+`;
 
 export const NavList = styled.ul`
   display: flex;
-  column-gap: .6rem
-`
+  column-gap: 0.6rem;
+`;
 
 export const NavItem = styled.li`
   padding: 0.6rem;
-`
+`;
 
 export const LinkText = styled(Link)`
   padding: 1.9rem 0;
-`
+`;

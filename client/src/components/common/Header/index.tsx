@@ -6,11 +6,17 @@ import * as S from './style';
 export const Header = () => {
   return (
     <S.HeaderContainer>
-      <Link to='/'>
+      <S.HeaderTitleLink to='/'>
         <S.HeaderTitle>HOW ABOUT OOTD</S.HeaderTitle>
-      </Link>
+      </S.HeaderTitleLink>
 
       <Navbar />
+      <S.MenuButton>
+        <span className='ir'>메뉴 열기 버튼</span>
+      </S.MenuButton>
+      <S.SearchButton>
+        <span className='ir'>검색 버튼</span>
+      </S.SearchButton>
     </S.HeaderContainer>
   );
 };
