@@ -34,26 +34,6 @@ const scalesImg = keyframes`
   }
 `;
 
-const transArrowDown = keyframes`
-  0% {
-    opacity: 0;
-  }
-  
-  30% {
-    opacity: 1;
-    bottom: 5%;
-  }
-
-  70% {
-    opacity: 1;
-    bottom: 5%;
-  }
-
-  100% {
-    opacity: 0;
-  }
-`;
-
 export const MastHeadContainer = styled.section`
   width: 100%;
   height: calc(100vh - 60px);
@@ -78,6 +58,10 @@ export const SlieItem = styled.li`
   height: 100%;
   position: relative;
   overflow: hidden;
+
+  &:not(.active) {
+    display: none;
+  }
 `;
 
 export const SlideImg = styled.img`

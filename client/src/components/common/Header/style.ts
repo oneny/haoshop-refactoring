@@ -5,8 +5,8 @@ export const HeaderContainer = styled.header`
   width: 100%;
   height: 60px;
   position: relative;
-  background-color: #ddd;
   padding: 1.6rem 2rem;
+  background-color: ${({ theme }) => theme.palette.white};
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoint.lg}) {
     display: flex;
@@ -28,7 +28,7 @@ export const HeaderTitle = styled.h1`
   white-space: nowrap;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoint.lg}) {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 `;
 
