@@ -26,6 +26,7 @@ export default createGlobalStyle`
     background: none;
     font-size: inherit;
     font: inherit;
+    outline: none;
   }
   button {
     cursor: pointer;

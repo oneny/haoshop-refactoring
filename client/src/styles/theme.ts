@@ -13,9 +13,16 @@ const breakpoint = {
   sm: '600px',
 };
 
+const fontSize = {
+  smFont: '1.1rem',
+  mdFont: '1.3rem',
+  lgFont: '1.4rem',
+};
+
 const theme = {
   palette,
   breakpoint,
+  fontSize
 };
 
 export default theme;
