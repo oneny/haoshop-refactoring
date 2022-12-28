@@ -10,9 +10,6 @@ type SigninInputProps = {
 };
 
 export const SigninInput = forwardRef<HTMLInputElement, SigninInputProps>((props, ref) => {
-  console.log(props);
-  console.log(ref);
-
   return (
     <S.InputContainer>
       <S.SigninInput ref={ref} {...props} />

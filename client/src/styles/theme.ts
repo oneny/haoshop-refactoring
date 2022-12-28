@@ -1,5 +1,6 @@
 const palette = {
-  maincolor: '#8AA1A1',
+  maincolor: '#6D9886',
+  background: '#393E46',
   white: '#FFFFFF',
   black: '#000000',
   border: '#DBDBDB',

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import useInput from 'hooks/useInput';
 import { SigninInput } from 'components';
+import * as S from './style';
 
 export const SigninForm = () => {
   const [email, onChangeEmail] = useInput('');
@@ -12,9 +13,10 @@ export const SigninForm = () => {
   }, []);
 
   return (
-    <section>
-      <h3>로그인</h3>
-      <form>
+    <S.LoginContainer>
+      <S.LoginTitle>SIGN IN</S.LoginTitle>
+
+      <S.LoginForm>
         <SigninInput
           ref={ref}
           id='email'
@@ -30,7 +32,9 @@ export const SigninForm = () => {
           placeholder='Password'
           onChange={onChangePassword}
         />
-      </form>
-    </section>
+
+        <S.LoginBtn>로그인</S.LoginBtn>
+      </S.LoginForm>
+    </S.LoginContainer>
   );
 };
