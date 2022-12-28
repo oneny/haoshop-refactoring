@@ -6,7 +6,7 @@ type UseInputProps = [
   React.Dispatch<React.SetStateAction<string>>,
 ];
 
-const useInput = (initValue: string): UseInputProps => {
+export const useInput = (initValue: string): UseInputProps => {
   const [value, setValue] = useState(initValue);
 
   const onChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
@@ -15,5 +15,3 @@ const useInput = (initValue: string): UseInputProps => {
 
   return [value, onChange, setValue];
 };
-
-export default useInput;

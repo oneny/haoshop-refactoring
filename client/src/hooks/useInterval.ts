@@ -4,7 +4,7 @@ type UseInterval = {
   (callback: () => void, interval: number): void;
 }
 
-const useInterval: UseInterval = (callback, interval) => {
+export const useInterval: UseInterval = (callback, interval) => {
   const savedCallback = useRef<(() => void) | null>(null);
 
   useEffect(() => {
@@ -23,5 +23,3 @@ const useInterval: UseInterval = (callback, interval) => {
     return () => clearInterval(id);
   }, [interval])
 }
-
-export default useInterval;

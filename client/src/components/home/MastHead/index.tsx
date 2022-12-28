@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import useInterval from 'hooks/useInterval';
+import {useInterval} from 'hooks';
 import * as S from './style';
 
 export const MastHead = () => {

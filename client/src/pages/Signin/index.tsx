@@ -1,5 +1,5 @@
 import { SigninForm } from 'components';
-import useTitle from 'hooks/useTitle';
+import { useTitle } from 'hooks';
 import * as S from './style';
 
 export const Signin = () => {

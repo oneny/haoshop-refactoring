@@ -1,38 +1,47 @@
 import { SigninInput } from 'components';
-import useInput from 'hooks/useInput';
-import { useEffect, useRef, MouseEventHandler, FormEvent } from 'react';
+import { useAppDispatch } from 'hooks/useAppStore';
+import {useInput, useTitle } from 'hooks';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useSigninMutation } from 'store/apis/authApiSlice';
+import { setCredentials } from 'store/slices/authSlice';
 import * as S from './style';
 
+interface SigninError extends Error {
+  data?: any;
+}
+
 export const SigninForm = () => {
+  useTitle('HOW ABOUT OOTD - SIGNIN');
+  const dispatch = useAppDispatch();
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
-  const ref = useRef<HTMLInputElement>(null);
-  const [signin, { isLoading }] = useSigninMutation();
+  const [errMsg, setErrMsg] = useState<string>('');
+  const emailRef = useRef<HTMLInputElement>(null);
+  const errRef = useRef<HTMLParagraphElement>(null);
+  const [signin] = useSigninMutation();
 
   useEffect(() => {
-    if (ref.current) ref.current.focus();
+    if (emailRef.current) emailRef.current.focus();
   }, []);
 
-  const handleSubmit = async (
-    e: FormEvent<HTMLFormElement> 
-  ) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await signin({ email, password }).unwrap();
-      console.log(response);
-    } catch (err) {
-      console.error(err);
+      const { accessToken } = await signin({ email, password }).unwrap();
+      dispatch(setCredentials({ accessToken }))
+    } catch (err: unknown) {
+      setErrMsg((err as SigninError).data.error);
     }
   };
+
 
   return (
     <S.LoginContainer>
       <S.LoginTitle>SIGN IN</S.LoginTitle>
-
+      {errMsg && <p ref={errRef}>{errMsg}</p>}
       <S.LoginForm onSubmit={handleSubmit}>
         <SigninInput
-          ref={ref}
+          ref={emailRef}
           id='email'
           lableText='Email'
           type='text'
