@@ -1,3 +1,4 @@
+import { logOut } from 'store/slices/authSlice';
 import { apiSlice } from './apiSlice';
 
 export const authApiSlice = apiSlice.injectEndpoints({
@@ -8,6 +9,20 @@ export const authApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: { ...credentials },
       }),
+    }),
+    signOut: builder.mutation({
+      query: () => ({
+        url: '/signout',
+        method: 'GET',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(logOut());
+        } catch (err) {
+          console.log(err);
+        }
+      },
     }),
   }),
 });
