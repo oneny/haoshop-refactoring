@@ -6,8 +6,6 @@ import { useAppSelector } from './useAppStore';
 type TokenProps = {
   id: string;
   roles: number[];
-  exp: number;
-  iat: number;
 };
 
 export const useAuth = () => {

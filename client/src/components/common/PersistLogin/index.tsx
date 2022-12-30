@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { useLazyRefreshQuery } from 'store/apis/authApiSlice';
@@ -17,6 +17,7 @@ export const PersistLogin = () => {
         console.error(err);
       }
     };
+    
     if (!token) verifyRefreshToken();
   }, []);
 
