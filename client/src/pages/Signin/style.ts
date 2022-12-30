@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
 export const Conatiner = styled.main`
-  padding-top: 20rem; 
+  height: calc(100vh - 360px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
+    height: 100svh;
+  }
 `
