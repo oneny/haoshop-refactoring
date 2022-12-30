@@ -1,16 +1,25 @@
 import { logOut, setCredentials } from 'store/slices/authSlice';
 import { apiSlice } from './apiSlice';
 
+type AccessTokenProps = {
+  accessToken: string;
+};
+
+type SignUpProps = {
+  email: string;
+  password: string;
+};
+
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    signin: builder.mutation({
+    signin: builder.mutation<AccessTokenProps, SignUpProps>({
       query: (credentials) => ({
         url: '/auth/signin',
         method: 'POST',
         body: { ...credentials },
       }),
     }),
-    signOut: builder.mutation({
+    signOut: builder.mutation<string, void>({
       query: () => ({
         url: '/signout',
         method: 'GET',
@@ -24,21 +33,23 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
-    refresh: builder.mutation({
+    refresh: builder.query<AccessTokenProps, void>({
       query: () => ({
         url: '/refresh',
-        method: 'GET'
       }),
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
-          const { data: { accessToken } } = await queryFulfilled;
+          const {
+            data: { accessToken },
+          } = await queryFulfilled;
           dispatch(setCredentials({ accessToken }));
         } catch (err) {
           console.log(err);
         }
-      }
-    })
+      },
+    }),
   }),
 });
 
-export const { useSigninMutation, useSignOutMutation, useRefreshMutation } = authApiSlice;
+export const { useSigninMutation, useSignOutMutation, useLazyRefreshQuery } =
+  authApiSlice;
