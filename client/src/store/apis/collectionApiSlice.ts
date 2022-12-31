@@ -34,7 +34,9 @@ export const collectionApiSlice = apiSlice.injectEndpoints({
           perPage,
         },
       }),
-      transformResponse: (responseData: { collections: CollectionsProps[]}) => {
+      transformResponse: (responseData: {
+        collections: CollectionsProps[];
+      }) => {
         const loadedCollections = responseData.collections.map((brand) => {
           brand.id = brand._id;
           return brand;
@@ -45,21 +47,18 @@ export const collectionApiSlice = apiSlice.injectEndpoints({
         return result
           ? [
               { type: 'Collection', id: 'LIST' },
-              ...result.map(({ _id }) => ({
-                type: 'Collection' as const,
-                id: _id,
-              })),
+              ...result.map(({ id }) => ({ type: 'Collection' as const, id })),
             ]
           : [{ type: 'Collection', id: 'LIST' }];
       },
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
-           const { data } = await queryFulfilled;
-           dispatch(setCollections(data));
+          const { data } = await queryFulfilled;
+          dispatch(setCollections(data));
         } catch (err) {
           console.log(err);
         }
-      }
+      },
     }),
   }),
 });
