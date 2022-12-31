@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Action } from '@remix-run/router';
 
 type BrandProps = {
   _id: string;
