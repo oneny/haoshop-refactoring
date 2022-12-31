@@ -1,6 +1,5 @@
-import jwtDecode, { JwtPayload } from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import { selectCurrentToken } from 'store/slices/authSlice';
-import ROLES from 'config/roles';
 import { useAppSelector } from './useAppStore';
 
 type TokenProps = {
