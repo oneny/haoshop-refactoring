@@ -1,11 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-const bar = keyframes`
-  0% {
-    width: 0%;
-  }
-`;
-
 const transNum = keyframes`
   0% {
     opacity: 0;
@@ -119,31 +113,4 @@ export const SlideNumBox = styled.div`
   @media screen and (max-width: ${({ theme }) => theme.breakpoint.sm}) {
     font-size: 2.5rem;
   }
-`
-
-export const SlideBar = styled.div`
-  position: absolute;
-  left: 4%;
-  bottom: 8%;
-  font-size: 2rem;
-  padding: 0 20% 1rem 0;
-
-  &::after {
-    content: '';
-    width: 100%;
-    height: 0.4rem;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    background-color: ${({ theme }) => theme.palette.white};
-    animation: ${bar} 4.5s infinite;
-  }
-
-  > span {
-    margin-left: 0.3rem;
-  }
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
-    display: none;
-  }
-`
+`;

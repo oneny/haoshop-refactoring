@@ -3,7 +3,7 @@ import { Lookbook } from 'store-interfaces';
 import { setLookbooks } from 'store/slices/lookbookSlice';
 import { apiSlice } from './apiSlice';
 
-const lookbookApiSlice = apiSlice.injectEndpoints({
+export const lookbookApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getLookbooks: builder.query<Lookbook[], Pagination>({
       query: ({ currentPage, perPage }) => ({

@@ -1,5 +1,5 @@
+import { useInterval } from 'hooks';
 import React, { useRef, useState } from 'react';
-import {useInterval} from 'hooks';
 import * as S from './style';
 
 export const MastHead = () => {
@@ -24,7 +24,7 @@ export const MastHead = () => {
             >
               <S.SlideImg
                 src={`/assets/images/mainbg${idx}.jpeg`}
-                alt=''
+                alt='HOW ABOUT OOTD 오프라인 매장 내부 모습'
                 loading={`${idx < 2 ? 'eager' : 'lazy'}`}
               />
               <S.MainTextBox>
@@ -36,10 +36,6 @@ export const MastHead = () => {
             </S.SlieItem>
           </React.Fragment>
         ))}
-
-        <S.SlideBar>
-          <span>View More</span>
-        </S.SlideBar>
       </S.SlideList>
     </S.MastHeadContainer>
   );

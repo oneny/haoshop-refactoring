@@ -1,6 +1,7 @@
 // common
 export * from './common/Layout';
 export * from './common/PersistLogin';
+export * from './common/Prefetch';
 
 // home
 export * from './home/MastHead'
