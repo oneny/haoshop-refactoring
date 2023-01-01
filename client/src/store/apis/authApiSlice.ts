@@ -1,18 +1,15 @@
 import { logOut, setCredentials } from 'store/slices/authSlice';
+import { Auth } from 'store-interfaces';
 import { apiSlice } from './apiSlice';
 
-type AccessTokenProps = {
-  accessToken: string;
-};
-
-type SignUpProps = {
+type SignUpParams = {
   email: string;
   password: string;
 };
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    signin: builder.mutation<AccessTokenProps, SignUpProps>({
+    signin: builder.mutation<Auth, SignUpParams>({
       query: (credentials) => ({
         url: '/auth/signin',
         method: 'POST',
@@ -33,7 +30,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
-    refresh: builder.query<AccessTokenProps, void>({
+    refresh: builder.query<Auth, void>({
       query: () => ({
         url: '/refresh',
       }),

@@ -1,29 +1,11 @@
+import { Pagination } from 'params-type';
+import { Lookbook } from 'store-interfaces';
 import { setLookbooks } from 'store/slices/lookbookSlice';
 import { apiSlice } from './apiSlice';
 
-type LookbookProps = {
-  _id: string;
-  name: string;
-  description: string;
-  modelInfo: string;
-  wearingSize: string;
-  banners: { _id: string; img: string }[];
-  products: string[];
-  createdBy: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-  id: string;
-};
-
-type ParamsType = {
-  currentPage: number;
-  perPage: number;
-};
-
 const lookbookApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getLookbooks: builder.query<LookbookProps[], ParamsType>({
+    getLookbooks: builder.query<Lookbook[], Pagination>({
       query: ({ currentPage, perPage }) => ({
         url: '/lookbooks',
         params: {
@@ -31,7 +13,7 @@ const lookbookApiSlice = apiSlice.injectEndpoints({
           perPage,
         },
       }),
-      transformResponse: (responseData: { lookbooks: LookbookProps[] }) => {
+      transformResponse: (responseData: { lookbooks: Lookbook[] }) => {
         const loadedLookbooks = responseData.lookbooks.map((lookbook) => {
           lookbook.id = lookbook._id;
           return lookbook;

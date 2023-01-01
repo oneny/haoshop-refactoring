@@ -1,32 +1,11 @@
 import { setCollections } from 'store/slices/collectionSlice';
+import { Collection } from 'store-interfaces';
+import { Pagination } from 'params-type';
 import { apiSlice } from './apiSlice';
-
-type CollectionsProps = {
-  _id: string;
-  name: string;
-  description: string;
-  brand: string;
-  launched: string;
-  director: string;
-  country: string;
-  shop: string;
-  banners: { _id: string; img: string }[];
-  cards: { _id: string; img: string }[];
-  createdBy: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-  id: string;
-};
-
-type ParamsType = {
-  currentPage: number;
-  perPage: number;
-};
 
 export const collectionApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getCollections: builder.query<CollectionsProps[], ParamsType>({
+    getCollections: builder.query<Collection[], Pagination>({
       query: ({ currentPage, perPage }) => ({
         url: '/collections',
         params: {
@@ -35,7 +14,7 @@ export const collectionApiSlice = apiSlice.injectEndpoints({
         },
       }),
       transformResponse: (responseData: {
-        collections: CollectionsProps[];
+        collections: Collection[];
       }) => {
         const loadedCollections = responseData.collections.map((brand) => {
           brand.id = brand._id;

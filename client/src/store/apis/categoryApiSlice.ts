@@ -1,17 +1,10 @@
 import { setCategories } from "store/slices/categorySlice";
+import { Category } from 'store-interfaces';
 import { apiSlice } from "./apiSlice";
-
-type CategoryProps = {
-  _id: string;
-  name: string;
-  slug: string;
-  viewType: string;
-  children: CategoryProps[];
-}
 
 export const categoryApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getCategories: builder.query<CategoryProps[], void>({
+    getCategories: builder.query<Category[], void>({
       query: () => ({ url: '/categories' }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {

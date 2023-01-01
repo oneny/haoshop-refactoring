@@ -1,23 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Brand, BrandState } from 'store-interfaces';
 
-type BrandProps = {
-  _id: string;
-  name: string;
-  description: string;
-  banner: { img: string, _id: string }[],
-  createdBy: string;
-  createdAt: string;
-  updatedAt: string;
-  '__v': string;
-  id?: string;
-};
-
-type BrandStateProps = {
-  brands: BrandProps[];
-  brand: BrandStateProps | {};
-}
-
-const initialState: BrandStateProps = {
+const initialState: BrandState = {
   brands: [],
   brand: {}
 };
@@ -26,7 +10,7 @@ const brandSlice = createSlice({
   name: 'brand',
   initialState,
   reducers: {
-    setBrands: (state, action: PayloadAction<BrandProps[]>) => {
+    setBrands: (state, action: PayloadAction<Brand[]>) => {
       state.brands = [...action.payload];
     }
   },

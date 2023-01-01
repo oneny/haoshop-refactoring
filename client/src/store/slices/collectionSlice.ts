@@ -1,28 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Collection, CollectionState } from 'store-interfaces';
 
-type CollectionProps = {
-  _id: string;
-  name: string;
-  description: string;
-  brand: string;
-  launched: string;
-  director: string;
-  country: string;
-  shop: string;
-  banners: { _id: string; img: string }[];
-  cards: { _id: string; img: string }[];
-  createdBy: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-};
-
-type CollectionStateProps = {
-  collections: CollectionProps[];
-  collection: CollectionProps | {};
-};
-
-const initialState: CollectionStateProps = {
+const initialState: CollectionState = {
   collections: [],
   collection: {}
 };
@@ -31,7 +10,7 @@ const collectionSlice = createSlice({
   name: 'collection',
   initialState,
   reducers: {
-    setCollections: (state, action: PayloadAction<CollectionProps[]>) => {
+    setCollections: (state, action: PayloadAction<Collection[]>) => {
       state.collections = [...action.payload];
     }
   },

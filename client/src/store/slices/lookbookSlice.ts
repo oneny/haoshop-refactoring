@@ -1,26 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Lookbook, LookbookState } from 'store-interfaces';
 
-type LookbookProps = {
-  _id: string;
-  name: string;
-  description: string;
-  modelInfo: string;
-  wearingSize: string;
-  banners: { _id: string; img: string }[];
-  products: string[];
-  createdBy: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-  id: string;
-};
-
-type LookbookStateProps = {
-  lookbooks: LookbookProps[];
-  lookbook: LookbookProps | {};
-};
-
-const initialState: LookbookStateProps = {
+const initialState: LookbookState = {
   lookbooks: [],
   lookbook: {},
 };
@@ -29,7 +10,7 @@ const lookbookSlice = createSlice({
   name: 'lookbook',
   initialState,
   reducers: {
-    setLookbooks: (state, action: PayloadAction<LookbookProps[]>) => {
+    setLookbooks: (state, action: PayloadAction<Lookbook[]>) => {
       state.lookbooks = [...action.payload];
     }
   }
