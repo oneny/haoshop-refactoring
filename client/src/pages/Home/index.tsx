@@ -1,11 +1,11 @@
 import { MastHead } from 'components';
 import { useAuth } from 'hooks';
-import { useGetBrandsQuery } from 'store/apis/brandAPiSlice';
-import { useGetCollectionsQuery } from 'store/apis/collectionApiSlice';
-import { useGetLookbooksQuery } from 'store/apis/lookbookApiSlice';
+import { useGetCategoriesQuery } from 'store/apis/categoryApiSlice';
 
 export const Home = () => {
   console.log(useAuth());
+  const { data } = useGetCategoriesQuery();
+  console.log(data);
 
   return (
     <main>
