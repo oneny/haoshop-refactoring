@@ -5,6 +5,7 @@ import brandSlice from './slices/brandSlice';
 import categorySlice from './slices/categorySlice';
 import collectionSlice from './slices/collectionSlice';
 import lookbookSlice from './slices/lookbookSlice';
+import productSlice from './slices/productSlice';
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     collection: collectionSlice,
     lookbook: lookbookSlice,
     category: categorySlice,
+    product: productSlice,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
