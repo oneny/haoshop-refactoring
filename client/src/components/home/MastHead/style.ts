@@ -35,7 +35,7 @@ export const MastHeadContainer = styled.section`
   color: ${({ theme }) => theme.palette.white};
   text-shadow: 0 5px 3px rgba(0, 0, 0, 0.4);
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.sm}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.sm}) {
     height: calc(100svh - 60px);
   }
 `;
@@ -63,7 +63,7 @@ export const SlideImg = styled.img`
   height: 100%;
   animation: ${scalesImg} 4.5s infinite;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
     object-fit: cover;
   }
 `;
@@ -76,7 +76,7 @@ export const MainTextBox = styled.div`
   right: 20%;
   width: max-content;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
     align-items: center;
     top: 45%;
     left: 50%;
@@ -88,11 +88,11 @@ export const MainText = styled.strong`
   display: block;
   font-size: 5rem;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
     font-size: 4rem;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.sm}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.sm}) {
     font-size: 3rem;
   }
 `;
@@ -110,7 +110,7 @@ export const SlideNumBox = styled.div`
     animation: ${transNum} 4.5s infinite;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.sm}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.sm}) {
     font-size: 2.5rem;
   }
 `;

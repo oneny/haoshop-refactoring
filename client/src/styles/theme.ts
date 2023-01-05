@@ -6,7 +6,7 @@ const palette = {
   border: '#DBDBDB',
 };
 
-const breakpoint = {
+const bp = {
   xxl: '1460px',
   xl: '1200px',
   lg: '1024px',
@@ -22,7 +22,7 @@ const fontSize = {
 
 const theme = {
   palette,
-  breakpoint,
+  bp,
   fontSize
 };
 

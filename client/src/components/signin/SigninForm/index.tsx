@@ -48,7 +48,7 @@ export const SigninForm = () => {
           ref={emailRef}
           id='email'
           lableText='Email'
-          type='text'
+          type='email'
           placeholder='Email'
           onChange={onChangeEmail}
         />

@@ -6,7 +6,7 @@ export const Conatiner = styled.main`
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
     height: 100svh;
   }
 `

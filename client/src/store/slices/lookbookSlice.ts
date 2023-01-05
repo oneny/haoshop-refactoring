@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from 'store';
 import { Lookbook, LookbookState } from 'store-interfaces';
 
 const initialState: LookbookState = {
@@ -19,3 +20,5 @@ const lookbookSlice = createSlice({
 export const { setLookbooks } = lookbookSlice.actions;
 
 export default lookbookSlice.reducer;
+
+export const selectAllLookbooks = (state: RootState) => state.lookbook.lookbooks;

@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   padding: 1.6rem 2rem;
   background-color: ${({ theme }) => theme.palette.white};
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.lg}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.lg}) {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,7 +27,7 @@ export const HeaderTitle = styled.h1`
   font-size: 2.8rem;
   white-space: nowrap;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.lg}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.lg}) {
     font-size: 2.2rem;
   }
 `;
@@ -35,14 +35,14 @@ export const HeaderTitle = styled.h1`
 export const MenuButton = styled.button`
   display: none;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.lg}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.lg}) {
     display: block;
     width: 28px;
     height: 28px;
     background: url('/assets/icons/icon-menu.svg') no-repeat center / 28px 28px;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
     width: 24px;
     height: 24px;
     background: url('/assets/icons/icon-menu.svg') no-repeat center / 24px 24px;
@@ -52,13 +52,13 @@ export const MenuButton = styled.button`
 export const SearchButton = styled.button`
   display: none;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.lg}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.lg}) {
     display: block;
     width: 28px;
     height: 28px;
     background: url('/assets/icons/icon-search.svg') no-repeat center / 28px
       28px;
-    @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
+    @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
       width: 24px;
       height: 24px;
       background: url('/assets/icons/icon-search.svg') no-repeat center / 24px 24px;

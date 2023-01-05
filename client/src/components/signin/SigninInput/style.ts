@@ -34,7 +34,7 @@ export const SigninInput = styled.input`
     top: 0.2rem;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.md}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
     font-size: ${({ theme }) => theme.fontSize.mdFont};
 
     & + label {
@@ -42,7 +42,7 @@ export const SigninInput = styled.input`
     }
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.sm}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.sm}) {
     font-size: ${({ theme }) => theme.fontSize.smFont};
 
     & + label {

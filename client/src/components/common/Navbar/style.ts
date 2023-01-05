@@ -7,7 +7,7 @@ export const NavContainer = styled.nav`
   justify-content: space-between;
   font-size: 1.6rem;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.lg}) {
+  @media screen and (max-width: ${({ theme }) => theme.bp.lg}) {
     display: none;
   }
 `;
