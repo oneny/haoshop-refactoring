@@ -7,3 +7,5 @@
 * [useInterval 구현해서 setInterval 사용 문제 해결하기](https://velog.io/@oneny/useInterval-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-setInterval-%EC%82%AC%EC%9A%A9-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0)
 * [accessToken을 localStorage 말고 메모리(변수)에 저장해 사용하기](https://velog.io/@oneny/refreshToken%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-accessToken%EC%9D%84-localStorage%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EC%A7%80-%EB%A7%90%EC%9E%90feat-rtk-query)
 * [TS + styled-component - No overload matches this call 해결하기](https://velog.io/@oneny/TS-styled-components-No-overload-matches-this-call)
+* [padding-top을 활용하여 반응형 이미지 컴포넌트 만들기](https://velog.io/@oneny/padding-top%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%B4-%EB%B0%98%EC%9D%91%ED%98%95-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+* [점진적 향상 기법으로 WebP 이미지 포맷 사용하기](https://velog.io/@oneny/Chrome%EC%97%90%EC%84%9C-webp-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0)
