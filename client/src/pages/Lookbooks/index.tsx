@@ -7,7 +7,6 @@ import * as S from './style';
 
 export const Lookbook = () => {
   const lookbooks = useAppSelector(selectAllLookbooks);
-  console.log(publicURL('123'));
 
   return (
     <main>

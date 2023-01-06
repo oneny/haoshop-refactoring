@@ -10,7 +10,6 @@ export const ImgBox = ({ src, alt, ratio }: ImgBoxProps) => {
   
   return (
     <S.ImgConatiner ratio={ratio}>
-      {/* <S.Img src={src} alt={alt} /> */}
       <picture>
         <source srcSet={`${src.slice(0, src.lastIndexOf('.'))}.webp`} type='image/webp' />
 
