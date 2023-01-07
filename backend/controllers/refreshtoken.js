@@ -45,10 +45,10 @@ exports.handleRefreshToken = asyncHandler(async (req, res, next) => {
       await foundUser.save();
 
       res.cookie("jwt", newRefreshToken, {
-        HttpOnly: true,
-        Secure: true,
-        SameSite: "None",
-        MaxAge: 24 * 60 * 60 * 1000,
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+        maxAge: 24 * 60 * 60 * 1000,
       });
 
       res.status(200).json({ accessToken });

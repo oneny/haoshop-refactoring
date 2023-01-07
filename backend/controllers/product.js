@@ -60,6 +60,7 @@ exports.getAllProducts = asyncHandler(async (req, res, next) => {
 });
 
 exports.getProductsByCategories = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
   let { cids, brands, ...queryOptions } = req.body;
   let findQuery = {};
   let matchQuery = {};
@@ -103,7 +104,7 @@ exports.getProductsByCategories = asyncHandler(async (req, res, next) => {
     { $sort: { _id: 1 } },
   ]).exec();
 
-  res.status(200).json({ products, brandData, total });
+  res.status(200).json({ products });
 });
 
 exports.getProducts = asyncHandler(async (req, res, next) => {

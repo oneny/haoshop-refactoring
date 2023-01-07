@@ -32,10 +32,10 @@ const sendToken = asyncHandler(async (req, res, user) => {
 
   // newRefreshToken 쿠키 저장
   res.cookie("jwt", newRefreshToken, {
-    HttpOnly: true,
-    Secure: true,
-    SameSite: "None",
-    MaxAge: 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    maxAge: 24 * 60 * 60 * 1000,
   });
 
   // Send token to user

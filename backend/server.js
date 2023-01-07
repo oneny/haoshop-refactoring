@@ -13,12 +13,13 @@ const credentials = require('./middlewares/credentials');
 connectDB();
 app.use(logger);
 app.use(credentials); 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
 app.use(express.static("/public"));
+app.use("/public", express.static(path.join(__dirname, "images")));
 app.use("/public", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/refresh", require("./routes/refresh"));

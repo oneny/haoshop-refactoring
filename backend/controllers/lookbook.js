@@ -50,13 +50,13 @@ exports.getNewLookbooks = asyncHandler(async (req, res, next) => {
 
 exports.getLookbooks = asyncHandler(async (req, res, next) => {
   const total = await Lookbook.find({}).countDocuments();
-  const lookbooks = await new Feature(Lookbook, req.body)
+  const lookbooks = await new Feature(Lookbook, req.query)
     .filter()
     .pagination()
     .sort()
     .getQuery();
 
-  res.status(200).json({ total, lookbooks });
+  res.status(200).json({ lookbooks });
 });
 
 exports.getLookbook = asyncHandler(async (req, res, next) => {

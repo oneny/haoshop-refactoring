@@ -44,19 +44,20 @@ exports.getAllCollections = asyncHandler(async (req, res, next) => {
 });
 
 exports.getCollections = asyncHandler(async (req, res, next) => {
+  console.log(req.query);
   // const total = await Collection.find({}).countDocuments();
-  const total = req.body.keyword
-    ? await Collection.find({ brand: req.body.keyword }).countDocuments()
-    : await Collection.find({}).countDocuments();
+  // const total = req.params.keyword
+  //   ? await Collection.find({ brand: req.params.keyword }).countDocuments()
+  //   : await Collection.find({}).countDocuments();
 
-  const collections = await new Feature(Collection, req.body)
+  const collections = await new Feature(Collection, req.query)
     .filter()
     .search()
     .pagination()
     .sort()
     .getQuery();
 
-  res.status(200).json({ total, collections });
+  res.status(200).json({ collections });
 });
 
 exports.getCollection = asyncHandler(async (req, res, next) => {
