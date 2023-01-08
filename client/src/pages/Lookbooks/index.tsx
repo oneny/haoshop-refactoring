@@ -5,7 +5,7 @@ import { selectAllLookbooks } from 'store/slices/lookbookSlice';
 import publicURL from 'utils/publicURL';
 import * as S from './style';
 
-export const Lookbook = () => {
+export const Lookbooks = () => {
   const lookbooks = useAppSelector(selectAllLookbooks);
 
   return (

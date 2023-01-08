@@ -5,17 +5,16 @@ type TImgContainer = {
 }
 
 export const ImgConatiner = styled.div<TImgContainer>`
-  display: block;
+  height: 0;
+  overflow: hidden;
   padding-top: ${(props) => props.ratio};
   position: relative;
-  overflow: hidden;
-`
+`;
 
 export const Img = styled.img`
-  width: 100%;
-  height: 100%;
   position: absolute;
-  object-fit: cover;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
-`
+`;

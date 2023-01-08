@@ -1,6 +1,5 @@
-import { lazy, Suspense } from 'react';
 import { Layout, PersistLogin, Prefetch } from 'components';
-import { Home, Signup, Signin, Lookbook } from 'pages';
+import { Home, Signup, Signin, Lookbook, Lookbooks } from 'pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // const Home = lazy(() => import('pages/Home').then(({ Home }) => ({ default: Home })));
@@ -16,7 +15,10 @@ const Router = () => {
             <Route element={<Layout />}>
               <Route element={<PersistLogin />}>
                 <Route index element={<Home />} />
-                <Route path='lookbooks' element={<Lookbook />} />
+                <Route path='lookbooks'>
+                  <Route index element={<Lookbooks />} />
+                  <Route path=':lookbookId' element={<Lookbook />} />
+                </Route>
               </Route>
               <Route path='signup' element={<Signup />} />
               <Route path='signin' element={<Signin />} />
