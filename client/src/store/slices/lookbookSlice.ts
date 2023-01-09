@@ -22,3 +22,6 @@ export const { setLookbooks } = lookbookSlice.actions;
 export default lookbookSlice.reducer;
 
 export const selectAllLookbooks = (state: RootState) => state.lookbook.lookbooks;
+
+export const selectLookbookById = (state: RootState, lookbookId: string) =>
+  state.lookbook.lookbooks.find(({ id }) => id === lookbookId);
