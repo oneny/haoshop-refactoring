@@ -11,7 +11,7 @@ export const Lookbooks = () => {
   return (
     <main>
       <S.LookbookSection>
-        <h3 className='ir'>HOW ABOUT OOTD 룩북 리스트</h3>
+        <h2 className='ir'>HOW ABOUT OOTD 룩북 리스트</h2>
         <S.LookbooksList>
           {lookbooks.map(({ id, banners, name }) => (
             <li key={id}>
