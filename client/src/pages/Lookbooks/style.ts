@@ -40,3 +40,7 @@ export const LookbookName = styled.strong`
     font-size: 1.3rem;
   }
 `
+
+export const ImgBox = styled.div`
+  padding-top: 150%;
+`
