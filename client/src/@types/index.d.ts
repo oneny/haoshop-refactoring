@@ -60,26 +60,6 @@ declare module 'store-interfaces' {
     collection: Collection | {};
   }
 
-  export interface Lookbook {
-    _id: string;
-    name: string;
-    description: string;
-    modelInfo: string;
-    wearingSize: string;
-    banners: { _id: string; img: string }[];
-    products: string[];
-    createdBy: string;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
-    id: string;
-  }
-
-  export interface LookbookState {
-    lookbooks: Lookbook[];
-    lookbook: Lookbook | {};
-  }
-
   export interface Product {
     ratings: {
       total: number;
@@ -93,7 +73,7 @@ declare module 'store-interfaces' {
     brand: string;
     color: string;
     description: string;
-    productImgs: { filename: string; _id: string }[];
+    productImgs: { fileName: string; _id: string }[];
     price: number;
     discountPrice: number;
     stock: { size: string; qty: number; _id: string }[];
@@ -110,6 +90,29 @@ declare module 'store-interfaces' {
   export interface ProductState {
     products: Product[];
     product: Product | {};
+  }
+
+  export interface Lookbook {
+    _id: string;
+    name: string;
+    description: string;
+    modelInfo: string;
+    wearingSize: string;
+    banners: { _id: string; img: string }[];
+    products: Pick<
+      Product,
+      '_id' | 'brand' | 'color' | 'discountPrice' | 'name' | 'productImgs'
+    >[];
+    createdBy: string;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+    id: string;
+  }
+
+  export interface LookbookState {
+    lookbooks: Lookbook[];
+    lookbook: Lookbook | {};
   }
 }
 

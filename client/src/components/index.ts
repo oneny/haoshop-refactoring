@@ -4,6 +4,8 @@ export * from './common/PersistLogin';
 export * from './common/Prefetch';
 export * from './common/ImgBox'
 export * from './common/InfoBox';
+export * from './common/Header';
+export * from './common/Footer';
 
 // home
 export * from './home/MastHead'

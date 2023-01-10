@@ -1,4 +1,4 @@
-import { SigninForm } from 'components';
+import { Footer, SigninForm } from 'components';
 import { useTitle } from 'hooks';
 import * as S from './style';
 
@@ -6,8 +6,11 @@ export const Signin = () => {
   useTitle('HOW ABOUT OOTD - SIGNIN');
 
   return (
-    <S.Conatiner>
-      <SigninForm />
-    </S.Conatiner>
+    <>
+      <S.Conatiner>
+        <SigninForm />
+      </S.Conatiner>
+      <Footer />
+    </>
   );
 };

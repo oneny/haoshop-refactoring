@@ -8,7 +8,6 @@ import { lookbookApiSlice } from 'store/apis/lookbookApiSlice';
 
 export const Prefetch = () => {
   useEffect(() => {
-    console.log('subsribing');
     const brands = store.dispatch(brandApiSlice.endpoints.getBrands.initiate());
     const categories = store.dispatch(
       categoryApiSlice.endpoints.getCategories.initiate(),
@@ -27,7 +26,6 @@ export const Prefetch = () => {
     );
 
     return () => {
-      console.log('unsubscribing');
       brands.unsubscribe();
       categories.unsubscribe();
       collections.unsubscribe();

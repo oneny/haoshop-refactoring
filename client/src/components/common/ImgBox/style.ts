@@ -5,7 +5,7 @@ type TImgContainer = {
 }
 
 export const ImgConatiner = styled.div<TImgContainer>`
-  height: 0;
+  width: 100%;
   overflow: hidden;
   padding-top: ${(props) => props.ratio};
   position: relative;

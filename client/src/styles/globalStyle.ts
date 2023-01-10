@@ -15,6 +15,15 @@ export default createGlobalStyle`
   }
   body {
     font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.4rem;
+
+    @media screen and (max-width: 798px) {
+      font-size: 1.3rem;
+    }
+
+    @media screen and (max-width: 798px) {
+      font-size: 1.1rem;
+    }
   }
   a {
     text-decoration: none;
