@@ -14,3 +14,6 @@ export * from './home/MastHead'
 // Signin
 export * from './signin/SigninForm';
 export * from './signin/SigninInput';
+
+// lookbook
+export { default as LookbooksView } from './lookbook/LookbooksView';

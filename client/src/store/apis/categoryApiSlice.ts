@@ -9,7 +9,7 @@ export const categoryApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-         dispatch(setCategories(data));
+          dispatch(setCategories(data));
         } catch (err) {
           console.log(err);
         }
