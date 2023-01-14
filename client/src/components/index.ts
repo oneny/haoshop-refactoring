@@ -17,3 +17,4 @@ export * from './signin/SigninInput';
 
 // lookbook
 export { default as LookbooksView } from './lookbook/LookbooksView';
+export { default as LookbookView } from './lookbook/LookbookView';
