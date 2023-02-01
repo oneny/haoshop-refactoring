@@ -1,10 +1,10 @@
 import { setCategories } from "store/slices/categorySlice";
-import { Category } from '@types';
+import { CategoryData } from 'types/category';
 import { apiSlice } from "./apiSlice";
 
 export const categoryApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getCategories: builder.query<Category[], void>({
+    getCategories: builder.query<CategoryData[], void>({
       query: () => ({ url: '/categories' }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {

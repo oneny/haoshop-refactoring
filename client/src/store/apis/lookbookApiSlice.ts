@@ -1,10 +1,11 @@
-import { Lookbook, Pagination } from '@types';
+import { LookbookData } from 'types/lookbook';
+import { Pagination } from 'types/pagination';
 import { setLookbooks } from 'store/slices/lookbookSlice';
 import { apiSlice } from './apiSlice';
 
 export const lookbookApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getLookbooks: builder.query<Lookbook[], Pagination>({
+    getLookbooks: builder.query<LookbookData[], Pagination>({
       query: ({ currentPage, perPage }) => ({
         url: '/lookbooks',
         params: {
@@ -12,7 +13,7 @@ export const lookbookApiSlice = apiSlice.injectEndpoints({
           perPage,
         },
       }),
-      transformResponse: (responseData: { lookbooks: Lookbook[] }) => {
+      transformResponse: (responseData: { lookbooks: LookbookData[] }) => {
         const loadedLookbooks = responseData.lookbooks.map((lookbook) => {
           lookbook.id = lookbook._id;
           return lookbook;

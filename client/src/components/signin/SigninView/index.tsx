@@ -1,4 +1,4 @@
-import { TSigninProps } from '@types';
+import { TSigninProps } from 'types/auth';
 import { Footer, SigninInput } from 'components';
 import * as S from './style';
 

@@ -1,10 +1,10 @@
 import { Footer, ImgBox } from 'components';
 import { Link } from 'react-router-dom';
-import { Lookbook } from '@types';
+import { LookbookData } from 'types/lookbook';
 import publicURL from 'utils/publicURL';
 import * as S from './style';
 
-const LookbooksView = ({ lookbooks }: { lookbooks: Lookbook[] }) => {
+const LookbooksView = ({ lookbooks }: { lookbooks: LookbookData[] }) => {
   return (
     <>
       <main>

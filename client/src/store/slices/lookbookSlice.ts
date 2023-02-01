@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
-import { Lookbook, LookbookState } from '@types';
+import { LookbookData, LookbookState } from 'types/lookbook';
 
 const initialState: LookbookState = {
   lookbooks: [],
@@ -11,7 +11,7 @@ const lookbookSlice = createSlice({
   name: 'lookbook',
   initialState,
   reducers: {
-    setLookbooks: (state, action: PayloadAction<Lookbook[]>) => {
+    setLookbooks: (state, action: PayloadAction<LookbookData[]>) => {
       state.lookbooks = [...action.payload];
     }
   }

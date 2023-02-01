@@ -1,4 +1,4 @@
-import { TSigninProps } from '@types';
+import { TSigninProps } from 'types/auth';
 import { SigninView } from 'components';
 import { useInput, useTitle } from 'hooks';
 import { useAppDispatch } from 'hooks/useAppStore';
@@ -6,7 +6,7 @@ import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSigninMutation } from 'store/apis/authApiSlice';
 import { setCredentials } from 'store/slices/authSlice';
-import { setPersisted } from 'utils/storage';
+import { setPersisted } from 'utils/persistLogin';
 
 interface SigninError extends Error {
   data?: any;

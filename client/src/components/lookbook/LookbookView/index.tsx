@@ -1,10 +1,10 @@
 import { Footer, ImgBox, InfoBox } from 'components';
-import { Lookbook } from '@types';
+import { LookbookData } from 'types/lookbook';
 import krw from 'utils/krw';
 import publicURL from 'utils/publicURL';
 import * as S from './style';
 
-const LookbookView = ({ lookbook }: { lookbook: Lookbook}) => {
+const LookbookView = ({ lookbook }: { lookbook: LookbookData }) => {
   return (
     <>
       <S.LookbookContainer>

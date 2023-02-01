@@ -1,12 +1,12 @@
 import { setBrands } from 'store/slices/brandSlice';
-import { Brand } from '@types';
+import { BrandData } from 'types/brand';
 import { apiSlice } from './apiSlice';
 
 export const brandApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getBrands: builder.query<Brand[], void>({
+    getBrands: builder.query<BrandData[], void>({
       query: () => ({ url: '/brands' }),
-      transformResponse: (responseData: { brands: Brand[]}) => {
+      transformResponse: (responseData: { brands: BrandData[]}) => {
         const loadedBrands = responseData.brands.map((brand) => {
           brand.id = brand._id;
           return brand;

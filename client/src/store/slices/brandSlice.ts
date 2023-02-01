@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Brand, BrandState } from '@types';
+import { BrandData, BrandState } from 'types/brand';
 
 const initialState: BrandState = {
   brands: [],
@@ -10,7 +10,7 @@ const brandSlice = createSlice({
   name: 'brand',
   initialState,
   reducers: {
-    setBrands: (state, action: PayloadAction<Brand[]>) => {
+    setBrands: (state, action: PayloadAction<BrandData[]>) => {
       state.brands = [...action.payload];
     }
   },

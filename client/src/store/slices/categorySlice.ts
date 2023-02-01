@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { createLinearCategory } from "utils/createLinearCategory";
-import { Category, CategoryState } from "@types";
+import { CategoryData, CategoryState } from "types/category";
 
 const initialState: CategoryState = {
   categories: [],
@@ -11,7 +11,7 @@ const categorySlice = createSlice({
   name: 'category',
   initialState,
   reducers: {
-    setCategories: (state, action: PayloadAction<Category[]>) => {
+    setCategories: (state, action: PayloadAction<CategoryData[]>) => {
       state.categories = [...action.payload];
       state.linearCategory = createLinearCategory(action.payload);
     }

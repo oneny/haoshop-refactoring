@@ -1,6 +1,15 @@
+import { useAuth } from 'hooks';
+import { useSignOutMutation } from 'store/apis/authApiSlice';
 import * as S from './style';
 
 export const Navbar = () => {
+  const { id } = useAuth();
+  const [signOut] = useSignOutMutation();
+
+  const handleSignout = async () => {
+    await signOut();
+  };
+
   return (
     <S.NavContainer>
       <S.NavList>
@@ -25,7 +34,11 @@ export const Navbar = () => {
           <S.LinkText to='/cart'>CART</S.LinkText>
         </S.NavItem>
         <S.NavItem>
-          <S.LinkText to='/signin'>SIGNIN</S.LinkText>
+          {id ? (
+            <button onClick={handleSignout}>SIGNOUT</button>
+          ) : (
+            <S.LinkText to='/signin'>SIGNIN</S.LinkText>
+          )}
         </S.NavItem>
         <S.NavItem>
           <S.LinkText to='/signup'>SIGNUP</S.LinkText>

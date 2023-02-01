@@ -1,4 +1,4 @@
-import { Product } from '@types';
+import { ProductData } from 'types/product';
 import { setProducts } from 'store/slices/productSlice';
 import { apiSlice } from './apiSlice';
 
@@ -10,7 +10,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: { ...args },
       }),
-      transformResponse: (responseData: { products: Product[] }) => {
+      transformResponse: (responseData: { products: ProductData[] }) => {
         const loadedProducts = responseData.products.map((product) => {
           product.id = product._id;
           return product;

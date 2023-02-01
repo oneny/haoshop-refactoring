@@ -1,5 +1,6 @@
 import { logOut, setCredentials } from 'store/slices/authSlice';
-import { Auth } from '@types';
+import { Auth } from 'types/auth';
+import { clearPersisted } from 'utils/persistLogin';
 import { apiSlice } from './apiSlice';
 
 type SignUpParams = {
@@ -18,13 +19,14 @@ export const authApiSlice = apiSlice.injectEndpoints({
     }),
     signOut: builder.mutation<string, void>({
       query: () => ({
-        url: '/signout',
+        url: '/auth/signout',
         method: 'GET',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
           dispatch(logOut());
+          clearPersisted();
         } catch (err) {
           console.log(err);
         }

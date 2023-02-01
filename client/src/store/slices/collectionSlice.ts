@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Collection, CollectionState } from '@types';
+import { CollectionData, CollectionState } from 'types/collection';
 
 const initialState: CollectionState = {
   collections: [],
@@ -10,7 +10,7 @@ const collectionSlice = createSlice({
   name: 'collection',
   initialState,
   reducers: {
-    setCollections: (state, action: PayloadAction<Collection[]>) => {
+    setCollections: (state, action: PayloadAction<CollectionData[]>) => {
       state.collections = [...action.payload];
     }
   },
