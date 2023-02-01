@@ -1,17 +1,17 @@
-const ErrorRes = require("../utils/ErrorRes");
-const Feature = require("../utils/Feature");
-const asyncHandler = require("../middlewares/asyncHandler");
-const Lookbook = require("../models/Lookbook");
-const mongoose = require("mongoose");
+const ErrorRes = require('../utils/ErrorRes');
+const Feature = require('../utils/Feature');
+const asyncHandler = require('../middlewares/asyncHandler');
+const Lookbook = require('../models/Lookbook');
+const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
 exports.addLookbook = asyncHandler(async (req, res, next) => {
   const { name, description, products, modelInfo, wearingSize } = req.body;
   let { banners } = req.files;
 
-  const pids = products.split(",").map((product) => new ObjectId(product));
+  const pids = products.split(',').map((product) => new ObjectId(product));
 
-  const folderName = req.baseUrl.split("/")[2]
+  const folderName = req.baseUrl.split('/')[2];
 
   if (!!banners) {
     banners = banners.map((banner) => ({
@@ -41,7 +41,7 @@ exports.getAllLookbooks = asyncHandler(async (req, res, next) => {
 exports.getNewLookbooks = asyncHandler(async (req, res, next) => {
   const lookbooks = await Lookbook.find({})
     .limit(4)
-    .populate("products")
+    .populate('products')
     .sort({ createdAt: -1 })
     .exec();
 
@@ -49,22 +49,35 @@ exports.getNewLookbooks = asyncHandler(async (req, res, next) => {
 });
 
 exports.getLookbooks = asyncHandler(async (req, res, next) => {
-  const total = await Lookbook.find({}).countDocuments();
   const lookbooks = await new Feature(Lookbook, req.query)
     .filter()
     .pagination()
     .sort()
     .getQuery();
 
-  res.status(200).json({ lookbooks });
+  const lookbooksWithProductsInfo = await Promise.all(
+    lookbooks.map(({ _id }) =>
+      Lookbook.findById(_id)
+        .populate(
+          'products',
+          '_id brand color name price discountPrice productImgs'
+        )
+        .exec()
+    )
+  );
+
+  res.status(200).json({ lookbooks: lookbooksWithProductsInfo });
 });
 
 exports.getLookbook = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  if (!id) return next(new ErrorRes("Params required", 400));
+  if (!id) return next(new ErrorRes('Params required', 400));
 
   const lookbook = await Lookbook.findById(id)
-    .populate("products", "_id brand color name price discountPrice productImgs")
+    .populate(
+      'products',
+      '_id brand color name price discountPrice productImgs'
+    )
     .exec();
 
   res.status(200).json({ lookbook });
@@ -74,12 +87,12 @@ exports.updateLookbook = asyncHandler(async (req, res, next) => {
   const { _id, name, description, products, modelInfo, wearingSize } = req.body;
   let { banners } = req.files;
 
-  const pids = products.split(",").map((product) => new ObjectId(product));
-  const folderName = req.baseUrl.split("/")[2]
+  const pids = products.split(',').map((product) => new ObjectId(product));
+  const folderName = req.baseUrl.split('/')[2];
 
   if (!!banners) {
     banners = banners.map((banner) => ({
-      img: `${folderName}/${banner.filename}`
+      img: `${folderName}/${banner.filename}`,
     }));
   }
 
@@ -102,7 +115,7 @@ exports.updateLookbook = asyncHandler(async (req, res, next) => {
 
 exports.deleteLookbook = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  if (!id) return next(new ErrorRes("Params required", 400));
+  if (!id) return next(new ErrorRes('Params required', 400));
 
   const result = await Lookbook.deleteOne({ _id: id }).exec();
 
