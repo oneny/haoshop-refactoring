@@ -1,6 +1,6 @@
 import { Footer, ImgBox } from 'components';
 import { Link } from 'react-router-dom';
-import { Lookbook } from 'store-interfaces';
+import { Lookbook } from '@types';
 import publicURL from 'utils/publicURL';
 import * as S from './style';
 

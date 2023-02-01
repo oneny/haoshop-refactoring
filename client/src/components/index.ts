@@ -12,7 +12,7 @@ export * from './home/MastHead'
 
 
 // Signin
-export * from './signin/SigninForm';
+export * from './signin/SigninView';
 export * from './signin/SigninInput';
 
 // lookbook

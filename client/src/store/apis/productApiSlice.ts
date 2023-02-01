@@ -1,4 +1,4 @@
-import { Product } from 'store-interfaces';
+import { Product } from '@types';
 import { setProducts } from 'store/slices/productSlice';
 import { apiSlice } from './apiSlice';
 

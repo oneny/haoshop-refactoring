@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { createLinearCategory } from "utils/createLinearCategory";
-import { Category, CategoryState } from "store-interfaces";
+import { Category, CategoryState } from "@types";
 
 const initialState: CategoryState = {
   categories: [],

@@ -1,5 +1,5 @@
 import { Footer, ImgBox, InfoBox } from 'components';
-import { Lookbook } from 'store-interfaces';
+import { Lookbook } from '@types';
 import krw from 'utils/krw';
 import publicURL from 'utils/publicURL';
 import * as S from './style';

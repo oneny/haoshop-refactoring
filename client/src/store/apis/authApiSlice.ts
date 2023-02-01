@@ -1,5 +1,5 @@
 import { logOut, setCredentials } from 'store/slices/authSlice';
-import { Auth } from 'store-interfaces';
+import { Auth } from '@types';
 import { apiSlice } from './apiSlice';
 
 type SignUpParams = {

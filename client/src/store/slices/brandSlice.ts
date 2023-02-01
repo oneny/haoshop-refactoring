@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Brand, BrandState } from 'store-interfaces';
+import { Brand, BrandState } from '@types';
 
 const initialState: BrandState = {
   brands: [],

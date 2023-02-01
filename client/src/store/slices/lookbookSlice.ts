@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
-import { Lookbook, LookbookState } from 'store-interfaces';
+import { Lookbook, LookbookState } from '@types';
 
 const initialState: LookbookState = {
   lookbooks: [],

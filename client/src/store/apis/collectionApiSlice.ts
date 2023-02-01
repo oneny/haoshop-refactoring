@@ -1,6 +1,5 @@
 import { setCollections } from 'store/slices/collectionSlice';
-import { Collection } from 'store-interfaces';
-import { Pagination } from 'params-type';
+import { Collection, Pagination } from '@types';
 import { apiSlice } from './apiSlice';
 
 export const collectionApiSlice = apiSlice.injectEndpoints({

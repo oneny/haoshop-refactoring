@@ -1,5 +1,5 @@
 import { setCategories } from "store/slices/categorySlice";
-import { Category } from 'store-interfaces';
+import { Category } from '@types';
 import { apiSlice } from "./apiSlice";
 
 export const categoryApiSlice = apiSlice.injectEndpoints({

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Collection, CollectionState } from 'store-interfaces';
+import { Collection, CollectionState } from '@types';
 
 const initialState: CollectionState = {
   collections: [],

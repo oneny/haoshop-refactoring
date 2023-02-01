@@ -1,5 +1,4 @@
-import { Pagination } from 'params-type';
-import { Lookbook } from 'store-interfaces';
+import { Lookbook, Pagination } from '@types';
 import { setLookbooks } from 'store/slices/lookbookSlice';
 import { apiSlice } from './apiSlice';
 

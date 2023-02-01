@@ -1,5 +1,5 @@
 import { setBrands } from 'store/slices/brandSlice';
-import { Brand } from 'store-interfaces';
+import { Brand } from '@types';
 import { apiSlice } from './apiSlice';
 
 export const brandApiSlice = apiSlice.injectEndpoints({
