@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { useLazyRefreshQuery } from 'store/apis/authApiSlice';
 import { selectCurrentToken } from 'store/slices/authSlice';
+import { getPersisted } from 'utils/storage';
 
 export const PersistLogin = () => {
   const token = useSelector(selectCurrentToken);
 
-  const [refresh] = useLazyRefreshQuery();
+  const [refresh, { isLoading }] = useLazyRefreshQuery();
 
   useEffect(() => {
     const verifyRefreshToken = async () => {
@@ -17,9 +18,9 @@ export const PersistLogin = () => {
         console.error(err);
       }
     };
-    
-    if (!token) verifyRefreshToken();
+
+    if (!token && getPersisted()) verifyRefreshToken();
   }, []);
 
-  return <Outlet />;
+  return <>{getPersisted() ? <Outlet /> : isLoading ? <></> : <Outlet />}</>;
 };

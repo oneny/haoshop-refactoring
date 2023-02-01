@@ -6,6 +6,7 @@ import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSigninMutation } from 'store/apis/authApiSlice';
 import { setCredentials } from 'store/slices/authSlice';
+import { setPersisted } from 'utils/storage';
 
 interface SigninError extends Error {
   data?: any;
@@ -35,6 +36,7 @@ export const Signin = () => {
       setEmail('');
       setPassword('');
       navigate('/');
+      setPersisted(true);
     } catch (err: unknown) {
       setErrMsg((err as SigninError).data.error);
     }
