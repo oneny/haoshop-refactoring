@@ -1,6 +1,7 @@
+import { queryTags } from 'constants/queryTags';
+import { setLookbooks } from 'store/slices/lookbookSlice';
 import { LookbookData } from 'types/lookbook';
 import { Pagination } from 'types/pagination';
-import { setLookbooks } from 'store/slices/lookbookSlice';
 import { apiSlice } from './apiSlice';
 
 export const lookbookApiSlice = apiSlice.injectEndpoints({
@@ -23,19 +24,19 @@ export const lookbookApiSlice = apiSlice.injectEndpoints({
       providesTags: (result, error, arg) => {
         return result
           ? [
-              { type: 'Lookbook', id: 'LIST' },
-              ...result.map(({ id }) => ({ type: 'Lookbook' as const, id })),
+              { type: queryTags.lookbook, id: 'LIST' },
+              ...result.map(({ id }) => ({ type: queryTags.lookbook, id })),
             ]
-          : [{ type: 'Lookbook', id: 'LIST' }];
+          : [{ type: queryTags.lookbook, id: 'LIST' }];
       },
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
-           const { data } = await queryFulfilled;
-           dispatch(setLookbooks(data));
+          const { data } = await queryFulfilled;
+          dispatch(setLookbooks(data));
         } catch (err) {
           console.log(err);
         }
-      }
+      },
     }),
   }),
 });

@@ -1,3 +1,4 @@
+import { queryTags } from 'constants/queryTags';
 import { setCollections } from 'store/slices/collectionSlice';
 import { CollectionData } from 'types/collection';
 import { Pagination } from 'types/pagination';
@@ -13,9 +14,7 @@ export const collectionApiSlice = apiSlice.injectEndpoints({
           perPage,
         },
       }),
-      transformResponse: (responseData: {
-        collections: CollectionData[];
-      }) => {
+      transformResponse: (responseData: { collections: CollectionData[] }) => {
         const loadedCollections = responseData.collections.map((brand) => {
           brand.id = brand._id;
           return brand;
@@ -25,10 +24,10 @@ export const collectionApiSlice = apiSlice.injectEndpoints({
       providesTags: (result, error, arg) => {
         return result
           ? [
-              { type: 'Collection', id: 'LIST' },
-              ...result.map(({ id }) => ({ type: 'Collection' as const, id })),
+              { type: queryTags.collection, id: 'LIST' },
+              ...result.map(({ id }) => ({ type: queryTags.collection, id })),
             ]
-          : [{ type: 'Collection', id: 'LIST' }];
+          : [{ type: queryTags.collection, id: 'LIST' }];
       },
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
