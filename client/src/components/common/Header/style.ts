@@ -37,15 +37,17 @@ export const MenuButton = styled.button`
 
   @media screen and (max-width: ${({ theme }) => theme.bp.lg}) {
     display: block;
-    width: 28px;
-    height: 28px;
-    background: url('/assets/icons/icon-menu.svg') no-repeat center / 28px 28px;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: url('/assets/icons/sprite-icons.png') no-repeat;
+    background-size: 5.6rem 2.8rem;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
-    width: 24px;
-    height: 24px;
-    background: url('/assets/icons/icon-menu.svg') no-repeat center / 24px 24px;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url('/assets/icons/sprite-icons.png') no-repeat;
+    background-size: 4.8rem 2.4rem;
   }
 `;
 
@@ -54,14 +56,14 @@ export const SearchButton = styled.button`
 
   @media screen and (max-width: ${({ theme }) => theme.bp.lg}) {
     display: block;
-    width: 28px;
-    height: 28px;
-    background: url('/assets/icons/icon-search.svg') no-repeat center / 28px
-      28px;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: url('/assets/icons/sprite-icons.png') no-repeat -2.8rem / 5.6rem 2.8rem;
+
     @media screen and (max-width: ${({ theme }) => theme.bp.md}) {
-      width: 24px;
-      height: 24px;
-      background: url('/assets/icons/icon-search.svg') no-repeat center / 24px 24px;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url('/assets/icons/sprite-icons.png') no-repeat -2.4rem / 4.8rem 2.4rem;
     }
   }
 `;
