@@ -42,7 +42,9 @@ export const authApiSlice = apiSlice.injectEndpoints({
             data: { accessToken },
           } = await queryFulfilled;
           dispatch(setCredentials({ accessToken }));
-        } catch (err) {}
+        } catch (err) {
+          clearPersisted();
+        }
       },
     }),
   }),
