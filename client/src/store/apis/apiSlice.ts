@@ -40,7 +40,7 @@ const baseQueryWithReauth: BaseQueryFn<
       api.dispatch(setCredentials({ ...refreshResult.data } as TokenProps));
       result = await baseQuery(args, api, extraOptions);
     } else {
-      if (refreshResult?.error?.status === 401) {
+      if (refreshResult?.error?.status === 403) {
         refreshResult.error.data = 'Your login has expired.';
       }
       return refreshResult;
