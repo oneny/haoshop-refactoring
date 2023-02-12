@@ -5,7 +5,7 @@ import {
   fetchBaseQuery,
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/query/react';
-import { queryTags } from 'constants/queryTags';
+import { queryKeys } from 'constants/queryKeys';
 import { RootState } from 'store';
 import { setCredentials } from 'store/slices/authSlice';
 
@@ -52,6 +52,6 @@ const baseQueryWithReauth: BaseQueryFn<
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryWithReauth,
-  tagTypes: Object.values(queryTags),
+  tagTypes: Object.values(queryKeys),
   endpoints: (builder) => ({}),
 });

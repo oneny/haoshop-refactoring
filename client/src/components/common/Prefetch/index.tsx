@@ -1,14 +1,12 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { store } from 'store';
-import { brandApiSlice } from 'store/apis/brandApiSlice';
 import { categoryApiSlice } from 'store/apis/categoryApiSlice';
 import { collectionApiSlice } from 'store/apis/collectionApiSlice';
 import { lookbookApiSlice } from 'store/apis/lookbookApiSlice';
 
 export const Prefetch = () => {
   useEffect(() => {
-    const brands = store.dispatch(brandApiSlice.endpoints.getBrands.initiate());
     const categories = store.dispatch(
       categoryApiSlice.endpoints.getCategories.initiate(),
     );
@@ -26,7 +24,6 @@ export const Prefetch = () => {
     );
 
     return () => {
-      brands.unsubscribe();
       categories.unsubscribe();
       collections.unsubscribe();
       lookbooks.unsubscribe();

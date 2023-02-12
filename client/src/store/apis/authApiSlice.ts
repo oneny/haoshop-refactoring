@@ -1,5 +1,5 @@
 import { logOut, setCredentials } from 'store/slices/authSlice';
-import { Auth } from 'types/auth';
+import { AuthData } from 'types/auth';
 import { clearPersisted } from 'utils/persistLogin';
 import { apiSlice } from './apiSlice';
 
@@ -10,7 +10,7 @@ type SignUpParams = {
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    signin: builder.mutation<Auth, SignUpParams>({
+    signin: builder.mutation<AuthData, SignUpParams>({
       query: (credentials) => ({
         url: '/auth/signin',
         method: 'POST',
@@ -32,7 +32,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
-    refresh: builder.query<Auth, void>({
+    refresh: builder.query<AuthData, void>({
       query: () => ({
         url: '/refresh',
       }),

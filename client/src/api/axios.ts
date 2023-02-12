@@ -1,11 +1,11 @@
 import axios, {
-  InternalAxiosRequestConfig,
-  AxiosResponse,
   AxiosError,
+  AxiosResponse,
+  InternalAxiosRequestConfig,
 } from 'axios';
-import { useAppDispatch } from 'hooks';
 import { store } from 'store';
 import { setCredentials } from 'store/slices/authSlice';
+import { AuthData } from 'types/auth';
 
 export const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
@@ -44,10 +44,9 @@ axiosWithAuth.interceptors.response.use(
     const prevRequest = error.config;
 
     if (error.response?.status === 403) {
-      const res = await axiosWithAuth.get<
-        void,
-        AxiosResponse<{ accessToken: string }>
-      >('/refresh');
+      const res = await axiosWithAuth.get<void, AxiosResponse<AuthData>>(
+        '/refresh'
+      );
 
       const accessToken = res.data.accessToken;
       store.dispatch(setCredentials({ accessToken }));

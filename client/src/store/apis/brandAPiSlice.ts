@@ -1,4 +1,4 @@
-import { queryTags } from 'constants/queryTags';
+import { queryKeys } from 'constants/queryKeys';
 import { setBrands } from 'store/slices/brandSlice';
 import { BrandData } from 'types/brand';
 import { apiSlice } from './apiSlice';
@@ -17,10 +17,10 @@ export const brandApiSlice = apiSlice.injectEndpoints({
       providesTags: (result, error, arg) => {
         return result
           ? [
-              { type: queryTags.brand, id: 'LIST' },
-              ...result.map(({ id }) => ({ type: queryTags.brand, id })),
+              { type: queryKeys.brand, id: 'LIST' },
+              ...result.map(({ id }) => ({ type: queryKeys.brand, id })),
             ]
-          : [{ type: queryTags.brand, id: 'LIST' }];
+          : [{ type: queryKeys.brand, id: 'LIST' }];
       },
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {

@@ -1,4 +1,4 @@
-import { queryTags } from 'constants/queryTags';
+import { queryKeys } from 'constants/queryKeys';
 import { setProducts } from 'store/slices/productSlice';
 import { ProductData } from 'types/product';
 import { apiSlice } from './apiSlice';
@@ -21,10 +21,10 @@ export const productApiSlice = apiSlice.injectEndpoints({
       providesTags: (result, error, arg) => {
         return result
           ? [
-              { type: queryTags.product, id: 'LIST' },
-              ...result.map(({ id }) => ({ type: queryTags.product, id })),
+              { type: queryKeys.product, id: 'LIST' },
+              ...result.map(({ id }) => ({ type: queryKeys.product, id })),
             ]
-          : [{ type: queryTags.product, id: 'LIST' }];
+          : [{ type: queryKeys.product, id: 'LIST' }];
       },
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {

@@ -1,4 +1,4 @@
-import { queryTags } from 'constants/queryTags';
+import { queryKeys } from 'constants/queryKeys';
 import { setCollections } from 'store/slices/collectionSlice';
 import { CollectionData } from 'types/collection';
 import { Pagination } from 'types/pagination';
@@ -24,10 +24,10 @@ export const collectionApiSlice = apiSlice.injectEndpoints({
       providesTags: (result, error, arg) => {
         return result
           ? [
-              { type: queryTags.collection, id: 'LIST' },
-              ...result.map(({ id }) => ({ type: queryTags.collection, id })),
+              { type: queryKeys.collection, id: 'LIST' },
+              ...result.map(({ id }) => ({ type: queryKeys.collection, id })),
             ]
-          : [{ type: queryTags.collection, id: 'LIST' }];
+          : [{ type: queryKeys.collection, id: 'LIST' }];
       },
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {

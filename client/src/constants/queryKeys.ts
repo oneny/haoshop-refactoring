@@ -1,4 +1,4 @@
-export const queryTags = {
+export const queryKeys = {
   user: 'User',
   brand: 'Brand',
   collection: 'Collection',
