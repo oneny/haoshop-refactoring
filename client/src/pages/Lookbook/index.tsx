@@ -1,15 +1,10 @@
 import { LookbookView } from 'components';
-import { useAppSelector } from 'hooks';
-import { selectLookbookById } from 'store/slices/lookbookSlice';
+import { useLookbookQuery } from 'queries/lookbook';
 import { useParams } from 'react-router-dom';
 
 export const Lookbook = () => {
   const { lookbookId } = useParams() as { lookbookId: string };
-  const lookbook = useAppSelector((state) =>
-    selectLookbookById(state, lookbookId)
-  );
-
-  if (!lookbook) return <></>;
+  const { data: lookbook } = useLookbookQuery(lookbookId);
 
   return <LookbookView lookbook={lookbook} />;
 };

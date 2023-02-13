@@ -23,10 +23,18 @@ export type TLookbooksDataRes = {
   lookbooks: LookbookData[];
 };
 
+export type TLookbookDataRes = {
+  lookbook: LookbookData;
+}
+
 export type TLookbookViewProps = {
   lookbooks?: InfiniteData<TLookbooksDataRes>;
   lastLookbookRef: (lookbook: HTMLLIElement) => void;
 };
+
+export type TLookbookProps = {
+  lookbook?: LookbookData;
+}
 
 export type LookbookState = {
   lookbooks: LookbookData[];
