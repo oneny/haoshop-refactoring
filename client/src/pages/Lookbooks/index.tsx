@@ -1,11 +1,37 @@
 import { LookbooksView } from 'components';
-import { useAppSelector } from 'hooks';
-import { selectAllLookbooks } from 'store/slices/lookbookSlice';
+import { useLookbooksInfiniteQuery } from 'queries/lookbook';
+import { useCallback, useRef } from 'react';
+import { TLookbookViewProps } from 'types/lookbook';
 
 export const Lookbooks = () => {
-  const lookbooks = useAppSelector(selectAllLookbooks);
+  const {
+    fetchNextPage,
+    hasNextPage,
+    data: lookbooks,
+  } = useLookbooksInfiniteQuery();
 
-  if (!lookbooks.length) return <p>Loading...</p>;
+  const intObserver = useRef<IntersectionObserver | null>(null);
+  const lastLookbookRef = useCallback(
+    (lookbook: HTMLLIElement) => {
+      if (!hasNextPage) return;
+      
+      if (intObserver.current) intObserver.current.disconnect();
 
-  return <LookbooksView lookbooks={lookbooks} />;
+      intObserver.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasNextPage) {
+          fetchNextPage();
+        }
+      });
+      
+      if (lookbook) intObserver.current.observe(lookbook);
+    },
+    [fetchNextPage, hasNextPage],
+  );
+  
+  const lookbooksViewProsp: TLookbookViewProps = {
+    lookbooks,
+    lastLookbookRef,
+  };
+
+  return <LookbooksView {...lookbooksViewProsp} />;
 };

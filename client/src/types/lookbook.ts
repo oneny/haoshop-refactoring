@@ -1,6 +1,7 @@
+import { InfiniteData } from '@tanstack/react-query';
 import { ProductData } from './product';
 
-export interface LookbookData {
+export type LookbookData = {
   _id: string;
   name: string;
   description: string;
@@ -16,9 +17,19 @@ export interface LookbookData {
   updatedAt: string;
   __v: number;
   id: string;
-}
+};
 
-export interface LookbookState {
+export type TLookbooksDataRes = {
+  lookbooks: LookbookData[];
+};
+
+export type TLookbookViewProps = {
+  lookbooks?: InfiniteData<TLookbooksDataRes>;
+  lastLookbookRef: (lookbook: HTMLLIElement) => void;
+};
+
+export type LookbookState = {
   lookbooks: LookbookData[];
   lookbook: LookbookData | {};
-}
+};
+
