@@ -4,7 +4,6 @@ import authSlice from './slices/authSlice';
 import brandSlice from './slices/brandSlice';
 import categorySlice from './slices/categorySlice';
 import collectionSlice from './slices/collectionSlice';
-import lookbookSlice from './slices/lookbookSlice';
 import productSlice from './slices/productSlice';
 
 export const store = configureStore({
@@ -12,7 +11,6 @@ export const store = configureStore({
     auth: authSlice,
     brand: brandSlice,
     collection: collectionSlice,
-    lookbook: lookbookSlice,
     category: categorySlice,
     product: productSlice,
     [apiSlice.reducerPath]: apiSlice.reducer,
