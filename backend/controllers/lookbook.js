@@ -55,18 +55,18 @@ exports.getLookbooks = asyncHandler(async (req, res, next) => {
     .sort()
     .getQuery();
 
-  const lookbooksWithProductsInfo = await Promise.all(
-    lookbooks.map(({ _id }) =>
-      Lookbook.findById(_id)
-        .populate(
-          'products',
-          '_id brand color name price discountPrice productImgs'
-        )
-        .exec()
-    )
-  );
+  // const lookbooksWithProductsInfo = await Promise.all(
+  //   lookbooks.map(({ _id }) =>
+  //     Lookbook.findById(_id)
+  //       .populate(
+  //         'products',
+  //         '_id brand color name price discountPrice productImgs'
+  //       )
+  //       .exec()
+  //   )
+  // );
 
-  res.status(200).json({ lookbooks: lookbooksWithProductsInfo });
+  res.status(200).json({ lookbooks });
 });
 
 exports.getLookbook = asyncHandler(async (req, res, next) => {
