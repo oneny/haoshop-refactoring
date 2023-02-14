@@ -15,7 +15,7 @@ router.get("/kakao", kakao);
 // 공통
 router.post("/signin", validateSignin, isValidated, signin);
 router.post("/signup", validateSignup, isValidated, signup);
-router.get("/signout", signout);
+router.post("/signout", signout);
 router.post("/forgot_password", forgotPassword);
 router.put("/reset_password", resetPassword);
 
