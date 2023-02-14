@@ -1,23 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { apiSlice } from './apis/apiSlice';
 import authSlice from './slices/authSlice';
-import brandSlice from './slices/brandSlice';
-import categorySlice from './slices/categorySlice';
-import collectionSlice from './slices/collectionSlice';
-import productSlice from './slices/productSlice';
+
 
 export const store = configureStore({
   reducer: {
     auth: authSlice,
-    brand: brandSlice,
-    collection: collectionSlice,
-    category: categorySlice,
-    product: productSlice,
-    [apiSlice.reducerPath]: apiSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(apiSlice.middleware),
-  devTools: true,
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export type RootState = ReturnType<typeof store.getState>;
