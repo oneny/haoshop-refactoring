@@ -1,14 +1,12 @@
 import { useAuth } from 'hooks';
-import { useSignOutMutation } from 'store/apis/authApiSlice';
+import { useSignoutMutation } from 'queries/auth';
 import * as S from './style';
 
 export const Navbar = () => {
   const { id } = useAuth();
-  const [signOut] = useSignOutMutation();
+  const { mutate: signout } = useSignoutMutation();
 
-  const handleSignout = async () => {
-    await signOut();
-  };
+  const handleSignout = () => signout();
 
   return (
     <S.NavContainer>
