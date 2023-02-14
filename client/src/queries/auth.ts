@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
-import { signin, signout } from 'api/auth';
+import { refresh, signin, signout } from 'api/auth';
 import { store } from 'store';
-import { clearCredentials } from 'store/slices/authSlice';
+import { clearCredentials, setCredentials } from 'store/slices/authSlice';
 import { TUserInfo } from 'types/auth';
 import { clearPersisted } from 'utils/persistLogin';
 
@@ -15,8 +15,17 @@ export const useSignoutMutation = () => {
   return useMutation({
     mutationFn: () => signout(),
     onSuccess: () => {
-      clearPersisted()
-      store.dispatch(clearCredentials())
+      clearPersisted();
+      store.dispatch(clearCredentials());
+    },
+  });
+};
+
+export const useRefreshMutation = () => {
+  return useMutation({
+    mutationFn: () => refresh(),
+    onSuccess: (data) => {
+      store.dispatch(setCredentials(data));
     },
   });
 };

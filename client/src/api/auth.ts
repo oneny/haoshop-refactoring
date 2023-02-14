@@ -10,3 +10,9 @@ export const signin = async (userInfo: TUserInfo): Promise<AuthData> => {
 export const signout = async (): Promise<void> => {
   await axiosWithAuth.post('/auth/signout');
 }
+
+export const refresh = async (): Promise<AuthData> => {
+  const { data } = await axiosWithAuth.post('/refresh');
+
+  return data;
+}
