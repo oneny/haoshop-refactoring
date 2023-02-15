@@ -1,4 +1,5 @@
 import { useInterval } from 'hooks';
+import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 import * as S from './style';
 
@@ -22,10 +23,12 @@ export const MastHead = () => {
               className={!idx ? 'active' : ''}
               ref={(ref) => (slideRef.current[idx] = ref as HTMLLIElement)}
             >
-              <S.SlideImg
+              <Image
+                priority={idx === 0}
                 src={`/assets/images/mainbg${idx}.jpeg`}
                 alt='HOW ABOUT OOTD 오프라인 매장 내부 모습'
-                loading={`${idx < 2 ? 'eager' : 'lazy'}`}
+                fill
+                sizes='100%'
               />
               <S.MainTextBox>
                 <S.MainText>HOW ABOUT OOTD</S.MainText>

@@ -8,7 +8,7 @@ import { setCredentials } from 'store/slices/authSlice';
 import { AuthData } from 'types/auth';
 
 export const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -16,7 +16,7 @@ export const axiosInstance = axios.create({
 });
 
 export const axiosWithAuth = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },

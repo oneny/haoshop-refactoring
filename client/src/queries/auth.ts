@@ -9,7 +9,7 @@ export const useSigninMutation = () => {
   return useMutation({
     mutationFn: (userData: TUserInfo) => signin(userData),
     onSuccess: (data) => {
-      store.dispatch(setCredentials(data));
+      store.dispatch(setCredentials(data))
       setPersisted(true);
     }
   });

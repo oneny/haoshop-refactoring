@@ -1,3 +1,5 @@
+import { DefaultTheme } from "styled-components";
+
 const palette = {
   maincolor: '#6D9886',
   background: '#393E46',
@@ -20,7 +22,7 @@ const fontSize = {
   lgFont: '1.4rem',
 };
 
-const theme = {
+const theme: DefaultTheme = {
   palette,
   bp,
   fontSize

@@ -7,7 +7,7 @@ export const useLookbooksInfiniteQuery = () => {
     queryKey: [queryKeys.lookbooks],
     queryFn: ({ pageParam = 1 }) => getLookbooks(pageParam),
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.lookbooks.length ? allPages.length + 1 : undefined;
+      return lastPage.lookbooks?.length ? allPages.length + 1 : undefined;
     },
     refetchOnMount: false,
     refetchOnWindowFocus: false,

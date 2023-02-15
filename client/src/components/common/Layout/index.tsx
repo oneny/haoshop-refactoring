@@ -1,14 +1,14 @@
-import { Outlet } from 'react-router-dom';
-import { Header } from 'components';
+import { Footer, Header } from 'components';
 import { Suspense } from 'react';
 
-export const Layout = () => {
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
       <Suspense fallback={<p>Loading...</p>}>
-        <Outlet />
+        {children}
       </Suspense>
+      <Footer />
     </>
   );
 };

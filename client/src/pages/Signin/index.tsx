@@ -3,13 +3,13 @@ import { SigninView } from 'components';
 import { useInput, useTitle } from 'hooks';
 import { useSigninMutation } from 'queries/auth';
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { TSigninProps } from 'types/auth';
 
-export const Signin = () => {
+export default function Sigin () {
   useTitle('SIGNIN - HOW ABOUT OOTD');
 
-  const navigate = useNavigate();
+  const { push } = useRouter();
   const [email, onChangeEmail, setEmail] = useInput('');
   const [password, onChangePassword, setPassword] = useInput('');
   const [errMsg, setErrMsg] = useState<string | undefined>();
@@ -34,7 +34,7 @@ export const Signin = () => {
     if (isSuccess) {
       setEmail('');
       setPassword('');
-      navigate('/');
+      push('/');
     }
   }, [isSuccess]);
 

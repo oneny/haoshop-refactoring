@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import * as S from './style';
 
 type ImgBoxProps = {
@@ -9,14 +10,7 @@ type ImgBoxProps = {
 export const ImgBox = ({ src, alt, ratio }: ImgBoxProps) => {
   return (
     <S.ImgConatiner ratio={ratio}>
-      <picture>
-        <source
-          srcSet={`${src.slice(0, src.lastIndexOf('.'))}.webp`}
-          type='image/webp'
-        />
-
-        <S.Img src={src} alt={alt} />
-      </picture>
+        <Image src={src} alt={alt} fill sizes="100%" />
     </S.ImgConatiner>
   );
 };

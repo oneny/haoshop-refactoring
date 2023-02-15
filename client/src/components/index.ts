@@ -1,20 +1,21 @@
 // common
 export * from './common/Layout';
-export * from './common/PersistLogin';
-export * from './common/Prefetch';
-export * from './common/ImgBox'
-export * from './common/InfoBox';
 export * from './common/Header';
+export * from './common/ImgBox'
 export * from './common/Footer';
+// export * from './common/PersistLogin';
+// export * from './common/Prefetch';
+export * from './common/InfoBox';
+export * from './common/Icons';
 
-// home
+// // home
 export * from './home/MastHead'
 
 
-// Signin
+// // Signin
 export * from './signin/SigninView';
 export * from './signin/SigninInput';
 
-// lookbook
+// // lookbook
 export { default as LookbooksView } from './lookbook/LookbooksView';
 export { default as LookbookView } from './lookbook/LookbookView';
