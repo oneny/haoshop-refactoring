@@ -4,7 +4,7 @@ module.exports = {
     styledComponents: true,
   },
   images: {
-    domains: ["localhost"]
+    domains: ['localhost'],
   },
   webpack(config) {
     config.module.rules.push({

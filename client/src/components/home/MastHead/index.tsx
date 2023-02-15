@@ -24,8 +24,8 @@ export const MastHead = () => {
               ref={(ref) => (slideRef.current[idx] = ref as HTMLLIElement)}
             >
               <Image
-                priority={idx === 0}
-                src={`/assets/images/mainbg${idx}.jpeg`}
+                priority={idx < 3}
+                src={`/images/mainbg${idx}.jpeg`}
                 alt='HOW ABOUT OOTD 오프라인 매장 내부 모습'
                 fill
                 sizes='100%'

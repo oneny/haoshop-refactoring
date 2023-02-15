@@ -10,7 +10,7 @@ type ImgBoxProps = {
 export const ImgBox = ({ src, alt, ratio }: ImgBoxProps) => {
   return (
     <S.ImgConatiner ratio={ratio}>
-        <Image src={src} alt={alt} fill sizes="100%" />
+      <Image src={src} alt={alt} fill sizes='100%' />
     </S.ImgConatiner>
   );
 };
