@@ -36,3 +36,4 @@
 - [React Query로 Prefetch 컴포넌트 만들기](https://velog.io/@oneny/React-Query%EB%A1%9C-Prefetch-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0)
 - [Next.js로 마이그레이션하기](https://velog.io/@oneny/Next.js%EB%A1%9C-%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98%ED%95%98%EA%B8%B0)
 - [Css-in-JS 문제 SWC로 해결하기](https://velog.io/@oneny/SWC)
+- [SSR과 React Query](https://velog.io/@oneny/SSR-React-Query)
