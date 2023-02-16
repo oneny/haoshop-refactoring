@@ -5,7 +5,11 @@ import { GetServerSideProps } from 'next';
 export default function Lookbook({ id }: { id: string }) {
   const { data: lookbook } = useLookbookQuery(id);
 
-  return <><LookbookView lookbook={lookbook} /></>;
+  return (
+    <>
+      <LookbookView lookbook={lookbook} />
+    </>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {

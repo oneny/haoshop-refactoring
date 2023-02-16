@@ -3,19 +3,22 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["react-app", "react-app/jest", "naver", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "naver",
+    "prettier"
+  ],
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": ["tsconfig.json"]
   },
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "no-var": "error",
     "eqeqeq": "error",
-    "require-await": "error",
+    "require-await": "warn",
     "no-unused-vars": "warn",
     "import/prefer-default-export": "off",
     "consistent-return": "off",
@@ -23,6 +26,8 @@
     "arrow-body-style": "off",
     "padding-line-between-statements": "off",
     "no-nested-ternary": "off",
-    "no-useless-return": "off"
+    "no-useless-return": "off",
+    "class-methods-use-this": "off",
+    "spaced-comment": "off"
   }
 }

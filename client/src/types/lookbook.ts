@@ -36,8 +36,3 @@ export type TLookbookProps = {
   lookbook?: LookbookData;
 }
 
-export type LookbookState = {
-  lookbooks: LookbookData[];
-  lookbook: LookbookData | {};
-};
-

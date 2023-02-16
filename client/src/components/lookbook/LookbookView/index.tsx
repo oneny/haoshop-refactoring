@@ -1,4 +1,4 @@
-import { Footer, ImgBox, InfoBox } from 'components';
+import { ImgBox, InfoBox } from 'components';
 import { TLookbookProps } from 'types/lookbook';
 import krw from 'utils/krw';
 import publicURL from 'utils/publicURL';

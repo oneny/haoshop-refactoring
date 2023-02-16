@@ -1,7 +1,7 @@
 import { Footer, Header } from 'components';
-import { Suspense } from 'react';
+import { ReactNode, Suspense } from 'react';
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />

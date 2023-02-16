@@ -15,8 +15,3 @@ export interface CollectionData {
   __v: number;
   id: string;
 }
-
-export interface CollectionState {
-  collections: CollectionData[];
-  collection: CollectionData | {};
-}

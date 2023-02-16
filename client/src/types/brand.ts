@@ -9,8 +9,3 @@ export interface BrandData {
   __v: string;
   id: string;
 }
-
-export interface BrandState {
-  brands: BrandData[];
-  brand: BrandState | {};
-}

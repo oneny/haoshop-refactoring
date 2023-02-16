@@ -4,7 +4,7 @@ import { useCallback, useRef } from 'react';
 import { TLookbookViewProps } from 'types/lookbook';
 
 export default function Lookbooks() {
-  const { fetchNextPage, hasNextPage, data: lookbooks, isLoading } = useLookbooksInfiniteQuery();
+  const { fetchNextPage, hasNextPage, data: lookbooks } = useLookbooksInfiniteQuery();
 
   const intObserver = useRef<IntersectionObserver | null>(null);
   const lastLookbookRef = useCallback(
@@ -28,8 +28,6 @@ export default function Lookbooks() {
     lookbooks,
     lastLookbookRef,
   };
-
-  console.log(lookbooks);
 
   return <>{lookbooks && <LookbooksView {...lookbooksViewProsp} />}</>;
 }

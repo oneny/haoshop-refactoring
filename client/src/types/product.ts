@@ -24,8 +24,3 @@ export interface ProductData {
   salesRate: number;
   id: string;
 }
-
-export interface ProductState {
-  products: ProductData[];
-  product: ProductData | {};
-}

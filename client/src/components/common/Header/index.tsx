@@ -1,5 +1,5 @@
-import { Navbar } from '../Navbar';
 import { MenuIcon, SearchIcon } from 'components';
+import { Navbar } from '../Navbar';
 import * as S from './style';
 
 export const Header = () => {
