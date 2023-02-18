@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     defaultOptions: {
       queries: {
         suspense: true,
-        // useErrorBoundary: true,
+        useErrorBoundary: true,
       },
     },
   }));
