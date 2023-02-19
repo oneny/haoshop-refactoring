@@ -6,6 +6,8 @@ export * from './common/Footer';
 export * from './common/InfoBox';
 export * from './common/Icons';
 export * from './common/QueryErrorResetBoundary';
+export * from './common/Prefetch';
+export * from './common/PersistLogin';
 
 // // home
 export * from './home/MastHead';

@@ -1,7 +1,6 @@
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Layout } from 'components';
-import { PersistLogin } from 'components/common/PersistLogin';
+import { Layout, Prefetch, PersistLogin } from 'components';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -32,9 +31,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <ThemeProvider theme={theme}>
               <GlobalStyle />
               <PersistLogin>
-                <Layout>
-                  <Component {...pageProps} />
-                </Layout>
+                <Prefetch>
+                  <Layout>
+                    <Component {...pageProps} />
+                  </Layout>
+                </Prefetch>
               </PersistLogin>
               <ReactQueryDevtools />
             </ThemeProvider>
