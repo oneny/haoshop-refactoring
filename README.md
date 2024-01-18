@@ -13,7 +13,7 @@
 
 ## 배포 주소
 
-- https://haoshop.site
+- https://haoshop.kr
 - 테스트 ID: await@gmail.com / PW: 123456
 - 테스트 카드: 4242-4242-4242-4242
 
